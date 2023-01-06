@@ -111,22 +111,6 @@ resource "azurerm_virtual_machine" "ran-vm" {
   }
 }
 
-resource "azurerm_virtual_machine_extension" "install0" {
-  name                 = "install0"
-  virtual_machine_id   = azurerm_virtual_machine.ran-vm.id
-  publisher            = "Microsoft.Azure.Extensions"
-  type                 = "CustomScript"
-  type_handler_version = "2.0"
-
- settings = <<SETTINGS
-    {
-        "fileUris": [
-        "https://raw.githubusercontent.com/omec-project/il_trafficgen/master/install.sh"
-        ],
-        "commandToExecute": "bash install.sh"
-    }
-SETTINGS
-}
 
 
 
