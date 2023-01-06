@@ -11,7 +11,7 @@ Files can be used to deploy OMEC userplance and controlplane functions.Bastion H
 
 # For MEC/GILAN/CORE
 Clone the source code using the command git clone https://github.com/omec-project/ngic-rtc-tmo.git
-1.cd ngic-rtc-tmo
+1.cd ngic-rtc-tmo /n
 2.Install NGIC and its dependencies using included install script ./install.sh
 3.make clean
 4.make
