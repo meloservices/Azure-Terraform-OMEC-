@@ -98,24 +98,7 @@ resource "azurerm_virtual_machine" "gilan-vm" {
 }
 
 
- resource "azurerm_virtual_machine_extension" "install1" {
-  name                 = "install1"
-  virtual_machine_id   = azurerm_virtual_machine.gilan-vm.id
-  publisher            = "Microsoft.Azure.Extensions"
-  type                 = "CustomScript"
-  type_handler_version = "2.0"
 
- 
- settings = <<SETTINGS
-    {
-        "fileUris": [
-        "https://raw.githubusercontent.com/omec-project/ngic-rtc/master/install.sh"
-        ],
-        "commandToExecute": "bash install.sh"
-    }
-SETTINGS
-
-}
 
 resource "azurerm_virtual_network_peering" "hub-gilan-peer" {
     name                      = "hub-gilan-peer"
