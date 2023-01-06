@@ -11,6 +11,7 @@ Files can be used to deploy OMEC userplance and controlplane functions.Bastion H
 
 # For MEC/GILAN/CORE
 Clone the source code using the command git clone https://github.com/omec-project/ngic-rtc-tmo.git
+
 1.cd ngic-rtc-tmo
 
 2.Install NGIC and its dependencies using included install script ./install.sh
@@ -32,7 +33,6 @@ https://pktgen-dpdk.readthedocs.io/en/latest/commands.html
 Set up the environmental variables required by DPDK:
 
 export RTE_SDK=<DPDKInstallDir>
-  
 export RTE_TARGET=x86_64-native-linuxapp-gcc
   
 make install T=x86_64-native-linuxapp-gcc
