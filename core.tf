@@ -102,24 +102,6 @@ resource "azurerm_virtual_machine" "core-vm" {
     }
 }
 
- resource "azurerm_virtual_machine_extension" "install3" {
-  name                 = "install3"
-  virtual_machine_id   = azurerm_virtual_machine.core-vm.id
-  publisher            = "Microsoft.Azure.Extensions"
-  type                 = "CustomScript"
-  type_handler_version = "2.0"
-
- 
- settings = <<SETTINGS
-    {
-        "fileUris": [
-        "https://raw.githubusercontent.com/omec-project/ngic-rtc/master/install.sh"
-        ],
-        "commandToExecute": "bash install.sh"
-    }
-SETTINGS
-
-}
 
 resource "azurerm_virtual_network_peering" "hub-core-peer" {
     name                      = "hub-core-peer"
