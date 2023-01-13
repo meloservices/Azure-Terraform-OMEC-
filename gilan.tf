@@ -68,6 +68,7 @@ resource "azurerm_virtual_machine" "gilan-vm" {
     resource_group_name   = azurerm_resource_group.gilan-vnet-rg.name
     network_interface_ids = [azurerm_network_interface.gilan-nic.id]
     vm_size               = "Standard_DS3_v2"
+    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
 
     storage_image_reference {
     publisher = "Canonical"
@@ -87,7 +88,7 @@ resource "azurerm_virtual_machine" "gilan-vm" {
     computer_name  = "${local.prefix-gilan}-vm"
     admin_username = var.username
     admin_password = var.password
-    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
+    
     }
 
     os_profile_linux_config {
