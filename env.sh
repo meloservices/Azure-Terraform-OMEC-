@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ARM_CLIENT_ID=""
-export ARM_CLIENT_SECRET=""
-export ARM_SUBSCRIPTION_ID=""
-export ARM_TENANT_ID=""
+export ARM_CLIENT_ID=c7ff9918-6d45-4966-bd91-0df85d1803a0
+export ARM_CLIENT_SECRET=c-H8Q~Q3vzUcHr0vZ51quWHX9mnug-lQ55hsUaOK
+export ARM_SUBSCRIPTION_ID=84d4c5ea-42fd-4be4-83ee-189193d1764f
+export ARM_TENANT_ID=799a7e3b-1b69-463f-9577-db9d1d79ed8e
