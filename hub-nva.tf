@@ -38,6 +38,7 @@ resource "azurerm_virtual_machine" "hub-nva-vm" {
     resource_group_name   = azurerm_resource_group.hub-nva-rg.name
     network_interface_ids = [azurerm_network_interface.hub-nva-nic.id]
     vm_size               = var.vmsize
+    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
 
     storage_image_reference {
     publisher = "Canonical"
@@ -57,7 +58,7 @@ resource "azurerm_virtual_machine" "hub-nva-vm" {
     computer_name  = "${local.prefix-hub-nva}-vm"
     admin_username = var.username
     admin_password = var.password
-    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
+    
     }
 
     os_profile_linux_config {
