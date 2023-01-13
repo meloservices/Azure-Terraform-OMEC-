@@ -73,6 +73,7 @@ resource "azurerm_virtual_machine" "core-vm" {
     resource_group_name   = azurerm_resource_group.core-vnet-rg.name
     network_interface_ids = [azurerm_network_interface.core-nic.id]
     vm_size               = "Standard_DS3_v2"
+    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
 
     storage_image_reference {
     publisher = "Canonical"
@@ -92,7 +93,7 @@ resource "azurerm_virtual_machine" "core-vm" {
     computer_name  = "${local.prefix-core}-vm"
     admin_username = var.username
     admin_password = var.password
-    custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
+    
     }
 
     os_profile_linux_config {
